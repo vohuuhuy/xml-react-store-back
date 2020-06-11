@@ -2,6 +2,8 @@ import * as dotenv from 'dotenv'
 
 dotenv.config()
 
+export const PATH_XML = process.env.PATH_XML || ''
+
 // system
 export const SYS_MODE = process.env.SYS_MODE || 'dev'
 export const PORT = process.env.PORT || 'dev'
