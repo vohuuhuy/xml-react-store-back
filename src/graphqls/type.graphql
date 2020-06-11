@@ -1,0 +1,13 @@
+type User {
+  _id: String
+  username: String
+  password: String
+  firstname: String
+  lastname: String
+  email: String
+  profileId: String
+  isEnabled: Boolean
+  sessionId: String
+  createdAt: Float
+  updatedAt: Float
+}
