@@ -1,0 +1,9 @@
+type Query {
+  findAllModel: String
+}
+
+type Mutation {
+  updateModel(input: String): String
+  addModel(input: String): String
+  deleteModels(Mas: [String]): String
+}

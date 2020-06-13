@@ -1,0 +1,9 @@
+type Query {
+  findAllManu: String
+}
+
+type Mutation {
+  updateManu(input: String): String
+  addManu(input: String): String
+  deleteManus(Mas: [String]): String
+}

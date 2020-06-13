@@ -1,0 +1,9 @@
+type Query {
+  findAllCus: String
+}
+
+type Mutation {
+  updateCus(input: String): String
+  addCus(input: String): String
+  deleteCuss(Mas: [String]): String
+}
