@@ -24,7 +24,9 @@ export const getAll = async () => {
 }
 
 export const findUser = async (TaiKhoan) => {
+  console.log(pathXML)
   const { QLTH: { NguoiDung } } = await getAll()
+  console.log(NguoiDung)
   return [].concat(NguoiDung)?.find(i => i.TaiKhoan['$t'] === TaiKhoan)
 }
 
