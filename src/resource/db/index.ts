@@ -37,7 +37,7 @@ export const addUser = async (input) => {
   const { QLTH } = await getAll()
   const users = await findAllUser()
   if (users.find(user => user.TaiKhoan['$t'] === input.TaiKhoan['$t'])) return 'Tài khoản đã tồn tại'
-  const MaND = 'ND' + `000${parseInt(users?.sort()[users?.length - 1].MaND['$t'].substr(2)) + 1}`.substr(-3)
+  const MaND = users?.length ? 'ND' + `000${parseInt(users?.sort()[users?.length - 1].MaND['$t'].substr(2)) + 1}`.substr(-3) : 'ND001'
   users.push({ MaND: { '$t': MaND }, ...input })
   const newXML = {
     ...QLTH,
@@ -93,7 +93,7 @@ export const findAllManu = async () => {
 export const addManu = async (input) => {
   const { QLTH } = await getAll()
   const manus = await findAllManu()
-  const MaNCC = 'NCC' + `000${parseInt(manus?.sort()[manus?.length - 1].MaNCC['$t'].substr(3)) + 1}`.substr(-3)
+  const MaNCC = manus?.length ? 'NCC' + `000${parseInt(manus?.sort()[manus?.length - 1].MaNCC['$t'].substr(3)) + 1}`.substr(-3) : 'NCC001'
   manus.push({ MaNCC: { '$t': MaNCC }, ...input })
   const newXML = {
     ...QLTH,
@@ -149,7 +149,7 @@ export const findAllCus = async () => {
 export const addCus = async (input) => {
   const { QLTH } = await getAll()
   const cuss = await findAllCus()
-  const MaKH = 'KH' + `000${parseInt(cuss?.sort()[cuss?.length - 1].MaKH['$t'].substr(2)) + 1}`.substr(-3)
+  const MaKH = cuss?.length && cuss[0]?.MaKH  ? 'KH' + `000${parseInt(cuss?.sort()[cuss?.length - 1].MaKH['$t'].substr(2)) + 1}`.substr(-3) : 'KH01'
   cuss.push({ MaKH: { '$t': MaKH }, ...input })
   const newXML = {
     ...QLTH,
@@ -196,7 +196,7 @@ export const deleteCuss = async (Mas = []) => {
   return true
 }
 
-// cus
+// model
 export const findAllModel = async () => {
   const { QLTH: { MauHang } } = await getAll()
   return [].concat(MauHang)
@@ -205,7 +205,7 @@ export const findAllModel = async () => {
 export const addModel = async (input) => {
   const { QLTH } = await getAll()
   const models = await findAllModel()
-  const MaMH = 'MH' + `000${parseInt(models?.sort()[models?.length - 1].MaMH['$t'].substr(2)) + 1}`.substr(-3)
+  const MaMH = models?.length ? 'MH' + `000${parseInt(models?.sort()[models?.length - 1].MaMH['$t'].substr(2)) + 1}`.substr(-3) : 'MH01'
   models.push({ MaMH: { '$t': MaMH }, ...input })
   const newXML = {
     ...QLTH,
@@ -247,6 +247,90 @@ export const deleteModels = async (Mas = []) => {
   const newXML = {
     ...QLTH,
     MauHang: models.filter(Model => !Mas.includes(Model.MaMH['$t']))
+  }
+  fs.writeFileSync(pathXML, convertXML(newXML))
+  return true
+}
+
+// import
+export const findAllImport = async () => {
+  const { QLTH: { DonHangNhap } } = await getAll()
+  return [].concat(DonHangNhap)
+}
+
+export const addImport = async (input) => {
+  const { QLTH } = await getAll()
+  const imports = await findAllImport()
+  const MaDHN = imports?.length ? 'DHN' + `000${parseInt(imports?.sort()[imports?.length - 1].MaDHN['$t'].substr(3)) + 1}`.substr(-3) : 'DHN001'
+  const imp = { MaDHN: { '$t': MaDHN }, ...input }
+  imports.push(imp)
+  const newXML = {
+    ...QLTH,
+    DonHangNhap: imports
+  }
+  fs.writeFileSync(pathXML, convertXML(newXML))
+  return imp
+}
+
+// stock import
+export const findAllStockImport = async () => {
+  const { QLTH: { Hang_DonHangNhap } } = await getAll()
+  return [].concat(Hang_DonHangNhap)
+}
+
+export const addStockImport = async (input) => {
+  const { QLTH } = await getAll()
+  const stockImports = await findAllStockImport()
+  stockImports.push(input)
+  const newXML = {
+    ...QLTH,
+    Hang_DonHangNhap: stockImports
+  }
+  fs.writeFileSync(pathXML, convertXML(newXML))
+  return true
+}
+
+// stock
+export const findAllStock = async () => {
+  const { QLTH: { Hang } } = await getAll()
+  return [].concat(Hang)
+}
+
+export const addStock = async (input) => {
+  const { QLTH } = await getAll()
+  const stocks = await findAllStock()
+  const MaH = stocks?.length ? 'H' + `000${parseInt(stocks?.sort()[stocks?.length - 1].MaH['$t'].substr(3)) + 1}`.substr(-3) : 'H001'
+  const stock = { MaH: { '$t': MaH }, ...input }
+  stocks.push(stock)
+  const newXML = {
+    ...QLTH,
+    Hang: stocks
+  }
+  fs.writeFileSync(pathXML, convertXML(newXML))
+  return stock
+}
+
+export const updateStock = async (input) => {
+  const { QLTH } = await getAll()
+  const { Hang } = QLTH
+  let newHang
+  if (Hang?.length) {
+    newHang = Hang.map(i => {
+      if (i.MaH['$t'] === input.MaH['$t']) return ({
+        ...i,
+        ...input
+      })
+      return i
+    })
+  } else if (Hang.MaH['$t'] === input.MaH['$t']) {
+    newHang = {
+      ...Hang,
+      ...input
+    }
+  }
+  const newXML = {
+    ...QLTH,
+    Hang: newHang
   }
   fs.writeFileSync(pathXML, convertXML(newXML))
   return true

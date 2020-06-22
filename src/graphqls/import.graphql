@@ -1,0 +1,7 @@
+type Query {
+  findAllImport: String
+}
+
+type Mutation {
+  createImport(import: String, stocks: String, newStocks: String): String
+}
