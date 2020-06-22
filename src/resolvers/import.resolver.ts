@@ -28,7 +28,7 @@ export class ImportResolve {
 
   @Mutation('createImport')
   async createImport (
-    @Args('import') impString,
+    @Args('imp') impString,
     @Args('stocks') stocksString,
     @Args('newStocks') newStocksString
   ) {
