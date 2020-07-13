@@ -23,6 +23,8 @@ export const getAll = async () => {
   return JSON.parse(xml2json.toJson(result, { reversible: true }))
 }
 
+// user
+
 export const findUser = async (TaiKhoan) => {
   const { QLTH: { NguoiDung } } = await getAll()
   return [].concat(NguoiDung)?.find(i => i.TaiKhoan['$t'] === TaiKhoan)
@@ -149,7 +151,7 @@ export const findAllCus = async () => {
 export const addCus = async (input) => {
   const { QLTH } = await getAll()
   const cuss = await findAllCus()
-  const MaKH = cuss?.length && cuss[0]?.MaKH  ? 'KH' + `000${parseInt(cuss?.sort()[cuss?.length - 1].MaKH['$t'].substr(2)) + 1}`.substr(-3) : 'KH01'
+  const MaKH = cuss?.length && cuss[0]?.MaKH  ? 'KH' + `000${parseInt(cuss?.sort()[cuss?.length - 1].MaKH['$t'].substr(2)) + 1}`.substr(-3) : 'KH001'
   cuss.push({ MaKH: { '$t': MaKH }, ...input })
   const newXML = {
     ...QLTH,
@@ -337,7 +339,7 @@ export const findAllStock = async () => {
 export const addStock = async (input) => {
   const { QLTH } = await getAll()
   const stocks = await findAllStock()
-  const MaH = stocks?.length ? 'H' + `000${parseInt(stocks?.sort()[stocks?.length - 1].MaH['$t'].substr(3)) + 1}`.substr(-3) : 'H001'
+  const MaH = stocks?.length ? 'H' + `000${parseInt(stocks?.sort()[stocks?.length - 1].MaH['$t'].substr(1)) + 1}`.substr(-3) : 'H001'
   const stock = { MaH: { '$t': MaH }, ...input }
   stocks.push(stock)
   const newXML = {
