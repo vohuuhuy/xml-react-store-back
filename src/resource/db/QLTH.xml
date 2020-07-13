@@ -1,257 +1,262 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="QLTH.xsl"?>
-<QLTH xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="file:QLTH.xsd">
-    
+<QLTH xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:QLTH.xsd">
     <DonHangNhap>
-        <MaDHN>DNH001</MaDHN>
-        <MaNCC>NBL001</MaNCC>
+        <MaDHN>DHN001</MaDHN>
+        <MaNCC>NCC001</MaNCC>
         <NgayNhap>2019-04-04</NgayNhap>
     </DonHangNhap>
     <DonHangNhap>
-        <MaDHN>DNH002</MaDHN>
-        <MaNCC>NCD003</MaNCC>
+        <MaDHN>DHN002</MaDHN>
+        <MaNCC>NCC003</MaNCC>
         <NgayNhap>20018-05-04</NgayNhap>
     </DonHangNhap>
     <DonHangNhap>
-        <MaDHN>DNH003</MaDHN>
-        <MaNCC>NTH005</MaNCC>
+        <MaDHN>DHN003</MaDHN>
+        <MaNCC>NCC005</MaNCC>
         <NgayNhap>2019-09-14</NgayNhap>
     </DonHangNhap>
     <DonHangNhap>
-        <MaDHN>DNH004</MaDHN>
-        <MaNCC>NTH005</MaNCC>
+        <MaDHN>DHN004</MaDHN>
+        <MaNCC>NCC005</MaNCC>
         <NgayNhap>2020-02-03</NgayNhap>
     </DonHangNhap>
     <DonHangNhap>
-        <MaDHN>DNH005</MaDHN>
-        <MaNCC>NBD002</MaNCC>
+        <MaDHN>DHN005</MaDHN>
+        <MaNCC>NCC002</MaNCC>
         <NgayNhap>2020-01-11</NgayNhap>
     </DonHangNhap>
-    
+
     <!-- Hàng Đơn Hàng Nhập -->
     <Hang_DonHangNhap>
-        <MaDHN>DNH001</MaDHN>
+        <MaDHN>DHN001</MaDHN>
         <MaH>H001</MaH>
         <SoLuong>200</SoLuong>
         <GiaNhap>20000</GiaNhap>
     </Hang_DonHangNhap>
     <Hang_DonHangNhap>
-        <MaDHN>DNH002</MaDHN>
+        <MaDHN>DHN002</MaDHN>
         <MaH>H002</MaH>
         <SoLuong>40</SoLuong>
         <GiaNhap>8000</GiaNhap>
     </Hang_DonHangNhap>
     <Hang_DonHangNhap>
-        <MaDHN>DNH003</MaDHN>
+        <MaDHN>DHN003</MaDHN>
         <MaH>H003</MaH>
         <SoLuong>25</SoLuong>
         <GiaNhap>40000</GiaNhap>
     </Hang_DonHangNhap>
     <Hang_DonHangNhap>
-        <MaDHN>DNH004</MaDHN>
+        <MaDHN>DHN004</MaDHN>
         <MaH>H004</MaH>
         <SoLuong>25</SoLuong>
         <GiaNhap>45000</GiaNhap>
     </Hang_DonHangNhap>
     <Hang_DonHangNhap>
-        <MaDHN>DNH005</MaDHN>
+        <MaDHN>DHN005</MaDHN>
         <MaH>H005</MaH>
         <SoLuong>15</SoLuong>
         <GiaNhap>20000</GiaNhap>
     </Hang_DonHangNhap>
     <Hang_DonHangNhap>
-        <MaDHN>DNH005</MaDHN>
+        <MaDHN>DHN005</MaDHN>
         <MaH>H006</MaH>
         <SoLuong>50</SoLuong>
         <GiaNhap>200000</GiaNhap>
     </Hang_DonHangNhap>
-    
+
     <!-- Mẫu hàng -->
     <MauHang>
-        <MaMH>BK01</MaMH>
+        <MaMH>MH001</MaMH>
         <TenMH>Bánh Cosy Mari 150G</TenMH>
-        <MaNH>NHBK</MaNH>
+        <MaNH>NH001</MaNH>
         <DonVi>Gói</DonVi>
         <Anh>Anh0</Anh>
+        <ChuThich>Không có chú thích</ChuThich>
     </MauHang>
     <MauHang>
-        <MaMH>BK02</MaMH>
+        <MaMH>MH002</MaMH>
         <TenMH>Bánh Quế Hana 50G</TenMH>
-        <MaNH>NHBK</MaNH>
+        <MaNH>NH001</MaNH>
         <DonVi>Gói</DonVi>
-        <Anh>Anh1</Anh>
+        <Anh>macdinh.png</Anh>
+        <ChuThich>Không có chú thích</ChuThich>
     </MauHang>
     <MauHang>
-        <MaMH>HQ01</MaMH>
+        <MaMH>MH003</MaMH>
         <TenMH>Dâu Xanh Thái Lan</TenMH>
-        <MaNH>NHHQ</MaNH>
+        <MaNH>NH002</MaNH>
         <DonVi>KG</DonVi>
-        <Anh>Anh1</Anh>
+        <Anh>macdinh.png</Anh>
+        <ChuThich>Không có chú thích</ChuThich>
     </MauHang>
     <MauHang>
-        <MaMH>HQ02</MaMH>
+        <MaMH>MH004</MaMH>
         <TenMH>Táo Mỹ Xanh</TenMH>
-        <MaNH>NHHQ</MaNH>
+        <MaNH>NH002</MaNH>
         <DonVi>KG</DonVi>
-        <Anh>Anh1</Anh>
+        <Anh>macdinh.png</Anh>
+        <ChuThich>Không có chú thích</ChuThich>
     </MauHang>
     <MauHang>
-        <MaMH>VM01</MaMH>
+        <MaMH>MH005</MaMH>
         <TenMH>Tiền Vàng Đốt</TenMH>
         <MaNH>NHVM</MaNH>
         <DonVi>Tệp</DonVi>
-        <Anh>Anh1</Anh>
+        <Anh>macdinh.png</Anh>
+        <ChuThich>Không có chú thích</ChuThich>
     </MauHang>
     <MauHang>
-        <MaMH>VM02</MaMH>
+        <MaMH>MH006</MaMH>
         <TenMH>Hương Quy Nhan</TenMH>
         <MaNH>NHVM</MaNH>
         <DonVi>Búp</DonVi>
-        <Anh>Anh1</Anh>
+        <Anh>macdinh.png</Anh>
+        <ChuThich>Không có chú thích</ChuThich>
     </MauHang>
     <MauHang>
-        <MaMH>VM03</MaMH>
+        <MaMH>MH007</MaMH>
         <TenMH>Rượu Cúng</TenMH>
         <MaNH>NHVM</MaNH>
         <DonVi>Chai</DonVi>
-        <Anh>Anh111</Anh>
+        <Anh>macdinh.png</Anh>
+        <ChuThich>Không có chú thích</ChuThich>
     </MauHang>
     <MauHang>
-        <MaMH>BR01</MaMH>
+        <MaMH>MH008</MaMH>
         <TenMH>Bia Sài Gòn Large</TenMH>
         <MaNH>NHBR</MaNH>
         <DonVi>Két</DonVi>
-        <Anh>Anh1</Anh>
+        <Anh>macdinh.png</Anh>
+        <ChuThich>Không có chú thích</ChuThich>
     </MauHang>
-    
-    
-    
+
     <!-- Nhà Cung Cấp -->
     <NhaCungCap>
-        <MaNCC>NBL001</MaNCC>
+        <MaNCC>NCC001</MaNCC>
         <TenNCC>Bân Lâm</TenNCC>
         <QuocGia>Việt Nam</QuocGia>
+        <DiaChi>Nha Trang</DiaChi>
         <SDT>099999999</SDT>
+        <Email>abc@gmail.com</Email>
     </NhaCungCap>
     <NhaCungCap>
-        <MaNCC>NBD002</MaNCC>
+        <MaNCC>NCC002</MaNCC>
         <TenNCC>Bình Đường</TenNCC>
         <QuocGia>Việt Nam</QuocGia>
+        <DiaChi>Nha Trang</DiaChi>
         <SDT>0971111640</SDT>
+        <Email>abc@gmail.com</Email>
     </NhaCungCap>
     <NhaCungCap>
-        <MaNCC>NCD003</MaNCC>
+        <MaNCC>NCC003</MaNCC>
         <TenNCC>Cảnh Đề</TenNCC>
         <QuocGia>Việt Nam</QuocGia>
+        <DiaChi>Nha Trang</DiaChi>
         <SDT>0976567999</SDT>
+        <Email>abc@gmail.com</Email>
     </NhaCungCap>
     <NhaCungCap>
-        <MaNCC>NHD004</MaNCC>
+        <MaNCC>NCC004</MaNCC>
         <TenNCC>Hợi Đồng</TenNCC>
         <QuocGia>Việt Nam</QuocGia>
+        <DiaChi>Nha Trang</DiaChi>
         <SDT>0888186567</SDT>
+        <Email>abc@gmail.com</Email>
     </NhaCungCap>
     <NhaCungCap>
-        <MaNCC>NTH005</MaNCC>
+        <MaNCC>NCC005</MaNCC>
         <TenNCC>Thúy Hương</TenNCC>
         <QuocGia>Việt Nam</QuocGia>
+        <DiaChi>Nha Trang</DiaChi>
         <SDT>0868193668</SDT>
+        <Email>abc@gmail.com</Email>
     </NhaCungCap>
-    
-    
+
     <!-- Hàng Chi Tiết -->
     <Hang>
         <MaH>H001</MaH>
-        <MaMH>BK01</MaMH>
-        <MaNCC>NCD003</MaNCC>
+        <MaMH>MH001</MaMH>
+        <MaNCC>NCC003</MaNCC>
         <HanSuDung>2021-09-15</HanSuDung>
         <GiaNhap>20000</GiaNhap>
         <SoLuong>100</SoLuong>
-        <GiaBan>23000</GiaBan>
     </Hang>
     <Hang>
         <MaH>H002</MaH>
-        <MaMH>BK02</MaMH>
-        <MaNCC>NTH005</MaNCC>
+        <MaMH>MH002</MaMH>
+        <MaNCC>NCC005</MaNCC>
         <HanSuDung>2020-06-12</HanSuDung>
         <GiaNhap>25000</GiaNhap>
         <SoLuong>200</SoLuong>
-        <GiaBan>28000</GiaBan>
     </Hang>
     <Hang>
         <MaH>H003</MaH>
-        <MaMH>HQ01</MaMH>
-        <MaNCC>NTH005</MaNCC>
+        <MaMH>MH003</MaMH>
+        <MaNCC>NCC005</MaNCC>
         <HanSuDung>2020-06-12</HanSuDung>
         <GiaNhap>10000</GiaNhap>
         <SoLuong>120</SoLuong>
-        <GiaBan>12000</GiaBan>
     </Hang>
     <Hang>
         <MaH>H004</MaH>
-        <MaMH>HQ02</MaMH>
-        <MaNCC>NTH005</MaNCC>
+        <MaMH>MH004</MaMH>
+        <MaNCC>NCC005</MaNCC>
         <HanSuDung>2020-06-12</HanSuDung>
         <GiaNhap>48500</GiaNhap>
         <SoLuong>66</SoLuong>
-        <GiaBan>50000</GiaBan>
     </Hang>
     <Hang>
         <MaH>H005</MaH>
-        <MaMH>VM01</MaMH>
-        <MaNCC>NHD004</MaNCC>
+        <MaMH>MH005</MaMH>
+        <MaNCC>NCC004</MaNCC>
         <HanSuDung>2020-06-12</HanSuDung>
         <GiaNhap>27200</GiaNhap>
         <SoLuong>450</SoLuong>
-        <GiaBan>30000</GiaBan>
     </Hang>
     <Hang>
         <MaH>H006</MaH>
-        <MaMH>VM03</MaMH>
-        <MaNCC>NHD004</MaNCC>
+        <MaMH>MH007</MaMH>
+        <MaNCC>NCC004</MaNCC>
         <HanSuDung>2020-06-12</HanSuDung>
         <GiaNhap>220000</GiaNhap>
         <SoLuong>20</SoLuong>
-        <GiaBan>245000</GiaBan>
     </Hang>
-    
-    
-    
+
     <!-- Mẫu Hàng - Nhóm Hàng -->
     <MauHang_NhomHang>
-        <MaMH>BK01</MaMH>
-        <MaNH>NHBK</MaNH>
+        <MaMH>MH001</MaMH>
+        <MaNH>NH001</MaNH>
     </MauHang_NhomHang>
     <MauHang_NhomHang>
-        <MaMH>BK02</MaMH>
-        <MaNH>NHBK</MaNH>
+        <MaMH>MH002</MaMH>
+        <MaNH>NH001</MaNH>
     </MauHang_NhomHang>
     <MauHang_NhomHang>
-        <MaMH>HQ01</MaMH>
-        <MaNH>NHHQ</MaNH>
+        <MaMH>MH003</MaMH>
+        <MaNH>NH002</MaNH>
     </MauHang_NhomHang>
     <MauHang_NhomHang>
-        <MaMH>HQ02</MaMH>
-        <MaNH>NHHQ</MaNH>
+        <MaMH>MH004</MaMH>
+        <MaNH>NH002</MaNH>
     </MauHang_NhomHang>
     <MauHang_NhomHang>
-        <MaMH>VM01</MaMH>
+        <MaMH>MH005</MaMH>
         <MaNH>NHVM</MaNH>
     </MauHang_NhomHang>
     <MauHang_NhomHang>
-        <MaMH>VM02</MaMH>
+        <MaMH>MH006</MaMH>
         <MaNH>NHVM</MaNH>
     </MauHang_NhomHang>
     <MauHang_NhomHang>
-        <MaMH>VM03</MaMH>
+        <MaMH>MH007</MaMH>
         <MaNH>NHVM</MaNH>
     </MauHang_NhomHang>
     <MauHang_NhomHang>
-        <MaMH>BR01</MaMH>
+        <MaMH>MH008</MaMH>
         <MaNH>NHBR</MaNH>
     </MauHang_NhomHang>
-    
+
     <!-- Đơn Hàng Xuất -->
     <DonHangXuat>
         <MaDHX>DHX001</MaDHX>
@@ -267,7 +272,7 @@
         <GiamGia>0</GiamGia>
         <KieuGiamGia>%</KieuGiamGia>
     </DonHangXuat>
-    
+
     <!-- Hàng - Đơn Hàng Xuất -->
     <Hang_DonHangXuat>
         <MaDHX>DHX001</MaDHX>
@@ -287,73 +292,28 @@
         <SoLuong>27</SoLuong>
         <GiaBan>23000</GiaBan>
     </Hang_DonHangXuat>
-    
+
     <!-- Nhóm Hàng -->
     <NhomHang>
-        <MaNH>NHBK</MaNH>
+        <MaNH>NH001</MaNH>
         <TenNH>Bánh Kẹo</TenNH>
     </NhomHang>
     <NhomHang>
-        <MaNH>NHHQ</MaNH>
+        <MaNH>NH002</MaNH>
         <TenNH>Hoa Quả</TenNH>
     </NhomHang>
-    
-    
+
     <!-- Người Dùng -->
     <NguoiDung>
         <MaND>ND001</MaND>
-        <TaiKhoan>huy.vo</TaiKhoan>
-        <MatKhau>huy123</MatKhau>
+        <TaiKhoan>admin</TaiKhoan>
+        <MatKhau>admin123</MatKhau>
         <ChucVu>QUAN_LY</ChucVu>
         <HoTen>Võ Hữu Huy</HoTen>
         <SDT>0911118891</SDT>
         <Anh>Anh114</Anh>
         <DiaChi>Ninh Hiệp, Ninh Hòa, Nha Trang</DiaChi>
         <GioiTinh>female</GioiTinh>
-    </NguoiDung>
-    <NguoiDung>
-        <MaND>ND002</MaND>
-        <TaiKhoan>AdminTH2</TaiKhoan>
-        <MatKhau>MatKhau0</MatKhau>
-        <ChucVu>NHAN_VIEN</ChucVu>
-        <HoTen>Võ Sơn Vang</HoTen>
-        <SDT>0911118891</SDT>
-        <Anh>Anh114</Anh>
-        <DiaChi>Ninh Hiệp, Ninh Hòa, Nha Trang</DiaChi>
-        <GioiTinh>male</GioiTinh>
-    </NguoiDung>
-    <NguoiDung>
-        <MaND>ND003</MaND>
-        <TaiKhoan>AdminTH3</TaiKhoan>
-        <MatKhau>MatKhau0</MatKhau>
-        <ChucVu>NHAN_VIEN</ChucVu>
-        <HoTen>Ngô Đắc Lương</HoTen>
-        <SDT>0911118891</SDT>
-        <Anh>Anh114</Anh>
-        <DiaChi>Ninh Hiệp, Ninh Hòa, Nha Trang</DiaChi>
-        <GioiTinh>male</GioiTinh>
-    </NguoiDung>
-    <NguoiDung>
-        <MaND>ND004</MaND>
-        <TaiKhoan>AdminTH4</TaiKhoan>
-        <MatKhau>MatKhau0</MatKhau>
-        <ChucVu>NHAN_VIEN</ChucVu>
-        <HoTen>Nguyễn Đình Thuận</HoTen>
-        <SDT>0911118891</SDT>
-        <Anh>Anh114</Anh>
-        <DiaChi>Ninh Hiệp, Ninh Hòa, Nha Trang</DiaChi>
-        <GioiTinh>female</GioiTinh>
-    </NguoiDung>
-    <NguoiDung>
-        <MaND>ND005</MaND>
-        <TaiKhoan>AdminTH5</TaiKhoan>
-        <MatKhau>MatKhau0</MatKhau>
-        <ChucVu>QUAN_LY</ChucVu>
-        <HoTen>Diệp Tư Thịnh</HoTen>
-        <SDT>0911118891</SDT>
-        <Anh>Anh114</Anh>
-        <DiaChi>Ninh Hiệp, Ninh Hòa, Nha Trang</DiaChi>
-        <GioiTinh>male</GioiTinh>
     </NguoiDung>
 
     <!-- Khách hàng -->
