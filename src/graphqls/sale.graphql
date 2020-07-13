@@ -1,0 +1,7 @@
+type Query {
+  findAllSale: String
+}
+
+type Mutation {
+  createSale(sale: String, stocks: String): String
+}

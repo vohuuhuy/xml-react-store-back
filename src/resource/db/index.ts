@@ -272,6 +272,26 @@ export const addImport = async (input) => {
   return imp
 }
 
+// sale
+export const findAllSale = async () => {
+  const { QLTH: { DonHangXuat } } = await getAll()
+  return [].concat(DonHangXuat)
+}
+
+export const addSale = async (input) => {
+  const { QLTH } = await getAll()
+  const sales = await findAllSale()
+  const MaDHX = sales?.length ? 'DHX' + `000${parseInt(sales?.sort()[sales?.length - 1].MaDHX['$t'].substr(3)) + 1}`.substr(-3) : 'DHX001'
+  const sale = { MaDHX: { '$t': MaDHX }, ...input }
+  sales.push(sale)
+  const newXML = {
+    ...QLTH,
+    DonHangXuat: sales
+  }
+  fs.writeFileSync(pathXML, convertXML(newXML))
+  return sale
+}
+
 // stock import
 export const findAllStockImport = async () => {
   const { QLTH: { Hang_DonHangNhap } } = await getAll()
@@ -285,6 +305,24 @@ export const addStockImport = async (input) => {
   const newXML = {
     ...QLTH,
     Hang_DonHangNhap: stockImports
+  }
+  fs.writeFileSync(pathXML, convertXML(newXML))
+  return true
+}
+
+// stock sale
+export const findAllStockSale = async () => {
+  const { QLTH: { Hang_DonHangXuat } } = await getAll()
+  return [].concat(Hang_DonHangXuat)
+}
+
+export const addStockSale = async (input) => {
+  const { QLTH } = await getAll()
+  const stockSales = await findAllStockSale()
+  stockSales.push(input)
+  const newXML = {
+    ...QLTH,
+    Hang_DonHangXuat: stockSales
   }
   fs.writeFileSync(pathXML, convertXML(newXML))
   return true
