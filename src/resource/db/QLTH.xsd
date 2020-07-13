@@ -5,12 +5,15 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="DonHangNhap" maxOccurs="unbounded">
+                    <!--bao nhieu don hang nhap cung duoc-->
                     <xs:complexType>
-                        <xs:sequence>
+                        <xs:sequence maxOccurs="unbounded">
                             <xs:element name="MaDHN">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
+                                        <!--kieu du lieu string-->
                                         <xs:pattern value="[A-Z]{3}[0-9]{3}"/>
+                                        <!-- bat dau 3 chu, ket thuc 3 so-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
@@ -19,15 +22,16 @@
                             <xs:element name="GiamGia">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:float">
-                                        <xs:minInclusive value="0"/>
-                                        <xs:maxInclusive value="0.9"/>
+                                        <!--giam gia tu 0% den 70%-->
+                                        <xs:pattern value="0|0.1|0.3|0.7"/>
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
                             <xs:element name="KieuGiamGia">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
-                                        <xs:pattern value="KHUYEN_MAI|GIAM_GIA"/>
+                                        <xs:pattern value="KHONG|KHUYEN_MAI|XA_HANG_TON|HET_HSD"/>
+                                        <!--khuyến mãi theo NSX còn giảm giá theo người bán :D, ví dụ giảm giá hàng sắp hết hạn, tồn kho-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
@@ -35,73 +39,138 @@
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Hang_DonHangNhap" maxOccurs="unbounded">
+                    <!-- bao nhiêu cũng được-->
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="MaDHN" type="xs:string"/>
+                            <!-- khóa ngoại phải type="xs:string" mới chạy được, hồi cô dặn là quy định nơi khóa chính là chạy rồi, nhưng mà ko chạy-->
                             <xs:element name="MaH" type="xs:string"/>
                             <xs:element name="SoLuong" type="xs:unsignedInt"/>
+                            <!-- số lượng ko dc phép âm-->
+                            <xs:element name="GiaNhap" type="xs:unsignedInt"/>
+                            <!-- giá tiền ko dc phép âm-->
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="MauHang" maxOccurs="unbounded">
+                    <!-- bao nhiêu cũng được-->
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="MaMH">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:pattern value="[A-Z]{2}[0-9]{2}"/>
+                                        <!--2 chữ đầu, 2 số cuối-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
                             <xs:element name="TenMH" type="xs:string"/>
+                            <xs:element name="MaNH" type="xs:string"/>
                             <xs:element name="DonVi" type="xs:string"/>
                             <xs:element name="Anh" type="xs:string"/>
-                            <xs:element name="ChuThich" minOccurs="0" maxOccurs="1" type="xs:string"
-                                > </xs:element>
+                            <!--string để chỉ đường dẫn: vd: C\abc\loaihang1.png-->
+                            <xs:element name="ChuThich" minOccurs="0" maxOccurs="1" type="xs:string"> </xs:element>
+                            <!--chỉ có 1 nhiều nhất 1 chú thích-->
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="NhaCungCap" maxOccurs="unbounded">
+                    <!--bao nhiêu nhà cung cấp cũng dc-->
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="MaNCC">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:pattern value="[A-Z]{3}[0-9]{3}"/>
+                                        <!-- 3 chữ hoa đầu, 3 số cuối-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
                             <xs:element name="TenNCC" type="xs:string"/>
                             <xs:element name="QuocGia" type="xs:string"/>
                             <xs:element name="DiaChi" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                            <!--only 1 địa chỉ-->
                             <xs:element name="SDT">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:minLength value="8"/>
+                                        <!--sdt ngắn nhất chỉ dc 8, ví dụ số điện thoại bàn: 0510882102 nhưng sdt di động lại 10 số. nên minLength = 8-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
                             <xs:element name="Email" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                            <!--only 1 mail-->
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Hang" maxOccurs="unbounded">
+                    <!--bao nhiêu hàng cũng dc-->
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="MaH">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:pattern value="[A-Z]{1}[0-9]{3}"/>
+                                        <!--bắt đầu 1 chữ hoa, kết 3 số-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="MaMH"/>
-                            <xs:element name="MaNCC"/>
-                            <xs:element name="HanSuDung" type="xs:unsignedShort"/>
+                            <xs:element name="MaMH" type="xs:string"/>
+                            <xs:element name="MaNCC" type="xs:string"/>
+                            <xs:element name="HanSuDung" type="xs:date"/>
+                            <!-- đoạn này phân vân HSD: 6 thang - 1 năm hay điền ngày hết đát-->
                             <xs:element name="NgayNhap" type="xs:date"/>
+                            <!--ngày nhập hàng về kho-->
                             <xs:element name="GiaNhap" type="xs:unsignedInt"/>
+                            <!--giá tiền ko dc âm-->
                             <xs:element name="SoLuong" type="xs:unsignedShort"/>
+                            <!--số lượng ko dc âm....do quy mô tạp hóa nhỏ nên số lượng hàng chỉ nhỏ hơn tầm của Short, nhiều quá chỗ đâu chất-->
                             <xs:element name="GiaBan" type="xs:unsignedInt"/>
+                            <!--giá tiền ko dc âm-->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Hang_DonHangXuat" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MaDHX" type="xs:string"/>
+                            <xs:element name="MaH" type="xs:string"/>
+                            <xs:element name="SoLuong" type="xs:unsignedShort"/>
+                            <!--số lượng ko dc âm....do quy mô tạp hóa nhỏ nên số lượng hàng chỉ nhỏ hơn tầm của Short, nhiều quá chỗ đâu chất-->
+                            <xs:element name="GiaBan" type="xs:unsignedInt"/>
+                            <!--giá bán ko dc âm-->
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DonHangXuat" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MaDHX">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[A-Z]{3}[0-9]{3}"/>
+                                        <!--bắt đầu 3 chữ hoa, kết 3 số-->
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="MaKH"/>
+                            <xs:element name="NgayXuat" type="xs:date"/>
+                            <xs:element name="GiamGia">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:float">
+                                        <xs:pattern value="0|0.1|0.3|0.7"/>
+                                        <!-- 4 giá trị giảm giá tương ứng 4 loại giảm giá, có thể đem 4 số này nhân với giá để lấy giá sau giảm-->
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="KieuGiamGia">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="KHONG|KHUYEN_MAI|XA_HANG_TON|HET_HSD"/>
+                                        <!--4 kiểu giảm giá-->
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -113,50 +182,11 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="DonHangXuat" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="MaDHX">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="[A-Z]{3}[0-9]{3}"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="MaKH"/>
-                            <xs:element name="NgayXuat" type="xs:date"/>
-                            <xs:element name="GiamGia">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:float">
-                                        <xs:minInclusive value="0"/>
-                                        <xs:maxInclusive value="0.9"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="KieuGiamGia">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="KHUYEN_MAI|GIAM_GIA"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Hang_DonHangXuat" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="MaDHX" type="xs:string"/>
-                            <xs:element name="MaH" type="xs:string"/>
-                            <xs:element name="SoLuong" type="xs:unsignedShort"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
                 <xs:element name="NhomHang" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="MaNH" type="xs:string"/>
-                            <xs:element name="TenNH"/>
+                            <xs:element name="TenNH" type="xs:string"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -167,25 +197,30 @@
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:pattern value="[A-Z]{2}[0-9]{3}"/>
+                                        <!--bắt đầu 2 chữ hoa, kết 3 số-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
                             <xs:element name="HoTen" type="xs:string"/>
                             <xs:element name="Anh" type="xs:string"/>
-                            <xs:element name="DiaChi" type="xs:string"/>
+                            <xs:element name="DiaChi" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                            <!--nhiều nhất 1 địa chỉ-->
                             <xs:element name="SoDienThoai">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:length value="10"/>
+                                        <!--sdt di động 10 số-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="Email" type="xs:string"/>
+                            <xs:element name="Email" type="xs:string" minOccurs="0"/>
+                            <!--có hay không cũng dc-->
                             <xs:element name="NgaySinh" type="xs:date"/>
                             <xs:element name="GioiTinh">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
-                                        <xs:pattern value="male|female"/>
+                                        <xs:pattern value="male|female|other"/>
+                                        <!--chọn 1 trong 2 kiểu nam or nữ, bê đê cũng dc-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
@@ -193,18 +228,21 @@
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="NguoiDung">
+                    <!-- thằng này là người dùng cái ứng dụng quản lý nên ko liên quan tới bảng nào hết, k cần khóa ngoại-->
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="MaND">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:pattern value="[A-Z]{2}[0-9]{3}"/>
+                                        <!--bắt đầu 2 chữ, kết 3 số-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
                             <xs:element name="TaiKhoan">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
+                                        <!--ID: ngắn nhất 8, dài nhất 25 kí tự String-->
 
                                         <xs:minLength value="8"/>
                                         <xs:maxLength value="25"/>
@@ -223,7 +261,8 @@
                             <xs:element name="ChucVu">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
-                                        <xs:pattern value="QUAN_LY|NV_BAN_HANG|NV_THU_NGAN"/>
+                                        <xs:pattern value="QUAN_LY|NHAN_VIEN"/>
+                                        <!--2 chức vụ, quản lý dành cho chủ quán, nhân viên thì là nhân viên-->
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
@@ -236,11 +275,12 @@
                                 </xs:simpleType>
                             </xs:element>
                             <xs:element name="Anh" type="xs:string"/>
-                            <xs:element name="DiaChi" type="xs:string"/>
+                            <xs:element name="DiaChi" type="xs:string" minOccurs="1"/>
+                            <!--bắt buộc có địa chỉ, nó ăn trộm tìm tới nhà luôn-->
                             <xs:element name="GioiTinh">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
-                                        <xs:pattern value="male|female"/>
+                                        <xs:pattern value="male|female|other"/>
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>

@@ -14,7 +14,7 @@ export class SaleResolve {
       const models = await R.DB.findAllModel()
       return JSON.stringify(sales.map(sale => ({
         ...sale,
-        KhachHang: cuss.find(kh => kh.MaKH['$t'] === sale.MaKH['$t']),
+        KhachHang: cuss?.find(kh => kh.MaKH['$t'] === sale.MaKH['$t']),
         Hang: stockSales.filter(stockSale => stockSale.MaDHX['$t'] === sale.MaDHX['$t'])
           .map(stockSale => ({
             ...stockSale,
