@@ -38,6 +38,7 @@ export class SaleResolve {
         const stockFind = allStock.find(s => s.MaH['$t'] === stock.MaH['$t'])
         return  ({
           ...stockFind,
+          ...stock,
           SoLuong: { $t: parseInt(stockFind.SoLuong['$t']) - parseInt(stock.SoLuong['$t']) }
         })
       })
@@ -45,7 +46,7 @@ export class SaleResolve {
       for (const stock of stocks) {
         await R.DB.updateStock(stock)
       }
-      const stocksSales = stocks.map(stock => ({
+      const stocksSales = (JSON.parse(stocksString) || []).map(stock => ({
         MaDHX: saleAdded.MaDHX,
         MaH: stock.MaH,
         SoLuong: stock.SoLuong,
